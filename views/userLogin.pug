@@ -1,0 +1,12 @@
+extends layout
+block main
+  .container
+    a(href='/') 首页
+    form(action='/api/user/login' method='post')
+      .form-group
+        label(for='exampleInputEmail1') 用户名称
+        input#exampleInputEmail1.form-control(type='text', placeholder='填写用户名称', name='username')
+      .form-group
+        label(for='exampleInputPassword1') 用户密码
+        input#exampleInputPassword1.form-control(type='text', placeholder='填写用户密码', name='pwd')
+      button.btn.btn-default(type='submit') 登陆

@@ -1,0 +1,20 @@
+extends layout
+block main
+  .container
+    a(href='/user/addForm' class='btn btn-info') 添加用户
+    table.table
+      caption User API
+      thead
+        tr
+          th 用户名
+          th 密码
+          th 操作
+      tbody
+        each item in users
+          tr
+            th(scope='row')= item.username
+            td= item.pwd
+            td
+              a(href="/user/editForm/"+item.id, class='btn btn-info') 编辑
+              a(href="/user/del/"+item.id, class='btn btn-danger') 删除
+

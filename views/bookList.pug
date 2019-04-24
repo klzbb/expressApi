@@ -1,0 +1,89 @@
+extends layout
+block main
+  .container
+    .row
+      .col-lg-6
+         a(href='/book/addForm' class='btn btn-info') 添加书籍
+         a.btn.btn-info(href='/book/find')  全部书籍
+         a.btn.btn-danger(href='/book/find/?borrowed=true') 已借阅
+         a.btn.btn-info(href='/book/find/?noborrow=false')  未借阅
+      .col-lg-6
+        .input-group
+          input.book-name.form-control(type='text', placeholder='请输入你要的书籍名称')
+          span.input-group-btn
+            button.btn.btn-default.book-find-by-name(type='button') 查询
+
+    table.table
+      caption Book API
+      thead
+        tr
+          th 书籍名
+          th 作者
+          th 分类
+          th 购买于
+          th 状态
+          //- th 借阅给
+          th 操作
+      tbody
+        each item in books
+          tr
+            th(scope='row')= item.name
+            td= item.author
+            td= item.category
+            td= moment(item.buyAt).format("YYYY年MM月DD日")
+            td= item.borrow===true? "已借阅" : "未借阅"
+            //- td= item.borrow===true? item.borrower : "nobody"
+            td
+              a(href="/book/editForm/"+item.id, class='btn btn-info') 编辑
+              a(href="/book/del/"+item.id, class='btn btn-danger') 删除
+              if !item.borrow
+                button(data-id=item.id, class='btn borrow btn-success',value='1') 借阅
+              else
+                button(data-id=item.id, class='btn giveback btn-success',value='0') 归库
+    nav.clearfix(aria-label='Page navigation')
+      ul.pagination.pagination-lg.pull-right
+        li
+          a(href='#', aria-label='Previous')
+            span(aria-hidden='true') «
+        li.active
+          a(href='#') 1
+        li
+          a(href='#') 2
+        li
+          a(href='#') 3
+        li
+          a(href='#') 4
+        li
+          a(href='#') 5
+        li
+          a(href='#', aria-label='Next')
+            span(aria-hidden='true') »
+block script
+  script.
+    $('.borrow').on('click',function(){
+        var url = '/book/borrow/'+$(this).attr('data-id');
+        var data = {
+          borrow:'1'
+        }
+        $.post(url,data,function(data){
+          window.location.href = '/book/find'
+        })
+    })
+
+    $('.giveback').on('click',function(){
+        var url = '/book/giveback/'+$(this).attr('data-id');
+        var data = {
+          borrow:'0'
+        }
+        $.post(url,data,function(data){
+          window.location.href = '/book/find'
+        })
+    })
+    $('.book-find-by-name').on('click',function(){
+      var url = '/book/find/?name='+$('.book-name').val()
+      $.get(url,function(data){
+        window.location.href = url
+      })
+    })
+
+

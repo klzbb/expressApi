@@ -1,0 +1,18 @@
+extends layout
+block main
+  .container
+    h4(class='text-info') 编辑书籍
+    form(action='/api/book/update/'+book.id, method='post')
+      .form-group
+        label(for='exampleInputEmail1') 书名
+        input#exampleInputEmail1.form-control(type='text', placeholder='用户名', name='name',value=book.name)
+      .form-group
+        label(for='exampleInputPassword1') 种类
+        input#exampleInputPassword1.form-control(type='text', placeholder='种类', name='category',value=book.category)
+      .form-group
+        label(for='exampleInputPassword1') 作者
+        input#exampleInputPassword1.form-control(type='text', placeholder='作者', name='author',value=book.author)
+      .form-group
+        label(for='exampleInputPassword1') 购买于
+        input#exampleInputPassword1.form-control(type='text', placeholder='购买日期', name='buyAt',value=book.buyAt)
+      button.btn.btn-default(type='submit') Submit

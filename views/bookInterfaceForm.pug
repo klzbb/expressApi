@@ -1,0 +1,16 @@
+extends layout
+block main
+  .container
+    a(href='/book/find') 返回
+    span(class='text-info') &lt;添加边栏
+    form(action='/api/book/add' method='post')
+      .form-group
+        label(for='exampleInputEmail1') 名称
+        input#exampleInputEmail1.form-control(type='text', placeholder='填写如：图书列表', name='name')
+      .form-group
+        label(for='exampleInputPassword1') url
+        input#exampleInputPassword1.form-control(type='text', placeholder='填写url', name='url')
+      .form-group
+        label(for='exampleInputPassword1') status
+        input#exampleInputPassword1.form-control(type='text', placeholder='status', name='status')
+      button.btn.btn-default(type='submit') Submit

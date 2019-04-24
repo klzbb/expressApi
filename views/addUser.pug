@@ -1,0 +1,12 @@
+extends layout
+block main
+  .container
+    h4(class='text-info') 添加用户
+    form(action='/user/add' method='post')
+      .form-group
+        label(for='exampleInputEmail1') 用户名
+        input#exampleInputEmail1.form-control(type='text', placeholder='用户名', name='username')
+      .form-group
+        label(for='exampleInputPassword1') 密码
+        input#exampleInputPassword1.form-control(type='password', placeholder='Password', name='pwd')
+      button.btn.btn-default(type='submit') Submit

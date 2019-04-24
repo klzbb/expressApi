@@ -1,0 +1,12 @@
+extends layout
+block main
+  .container
+    h4(class='text-danger') 修改用户
+    form(action='/user/update/'+user.id, method='post')
+      .form-group
+        label(for='exampleInputEmail1') 用户名
+        input#exampleInputEmail1.form-control(type='text', placeholder='用户名', name='username', value= user.username)
+      .form-group
+        label(for='exampleInputPassword1') 密码
+        input#exampleInputPassword1.form-control(type='password', placeholder='Password', name='pwd',value=user.pwd)
+      button.btn.btn-default(type='submit') Submit

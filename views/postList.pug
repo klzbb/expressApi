@@ -1,0 +1,43 @@
+extends layout
+block main
+  .container
+    a(href='/post/addForm' class='btn btn-info') 添加文章
+    table.table
+      caption Post API
+      thead
+        tr
+          th 标题
+          th 内容
+          th 作者
+          th 创建于
+          th 操作
+      tbody
+        each item in posts
+          tr
+            th(scope='row')= item.title
+            td= item.content
+            td= item.author
+            td= moment(item.createAt).format("YYYY年MM月DD日")
+            //- td= item.buyAt
+            td
+              a(href="/post/editForm/"+item.id, class='btn btn-info') 编辑
+              a(href="/post/del/"+item.id, class='btn btn-danger') 删除
+    nav.clearfix(aria-label='Page navigation')
+      ul.pagination.pagination-lg.pull-right
+        li
+          a(href='#', aria-label='Previous')
+            span(aria-hidden='true') «
+        li.active
+          a(href='#') 1
+        li
+          a(href='#') 2
+        li
+          a(href='#') 3
+        li
+          a(href='#') 4
+        li
+          a(href='#') 5
+        li
+          a(href='#', aria-label='Next')
+            span(aria-hidden='true') »
+

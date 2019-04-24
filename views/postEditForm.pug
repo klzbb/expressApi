@@ -1,0 +1,18 @@
+extends layout
+block main
+  .container
+    h4(class='text-info') 编辑文章
+    form(action='/post/update/'+post.id, method='post')
+      .form-group
+        label(for='exampleInputEmail1') 标题
+        input#exampleInputEmail1.form-control(type='text', name='title',value=post.title)
+      .form-group
+        label(for='exampleInputPassword1') 内容
+        input#exampleInputPassword1.form-control(type='text', name='content',value=post.content)
+      //- .form-group
+      //-   label(for='exampleInputPassword1') 作者
+      //-   input#exampleInputPassword1.form-control(type='text', name='author',value=post.author)
+      //- .form-group
+      //-   label(for='exampleInputPassword1') 创建于
+      //-   input#exampleInputPassword1.form-control(type='text', name='createAt',value=post.createAt)
+      button.btn.btn-default(type='submit') Submit

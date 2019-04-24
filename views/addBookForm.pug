@@ -1,0 +1,19 @@
+extends layout
+block main
+  .container
+    a(href='/book/find') 返回
+    span(class='text-info') &lt;添加书籍
+    form(action='/api/book/add' method='post')
+      .form-group
+        label(for='exampleInputEmail1') 书名
+        input#exampleInputEmail1.form-control(type='text', placeholder='填写书籍名称', name='name')
+      .form-group
+        label(for='exampleInputPassword1') 种类
+        input#exampleInputPassword1.form-control(type='text', placeholder='填写书籍种类', name='category')
+      .form-group
+        label(for='exampleInputPassword1') 作者
+        input#exampleInputPassword1.form-control(type='text', placeholder='作者', name='author')
+      .form-group
+        label(for='exampleInputPassword1') 购买于
+        input#exampleInputPassword1.form-control(type='text', placeholder='购买日期', name='buyAt')
+      button.btn.btn-default(type='submit') Submit

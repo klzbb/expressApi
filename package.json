@@ -1,0 +1,28 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "set NODE_ENV=production&&node bin/www",
+    "pm2": "pm2 start bin/www ",
+    "run": "set NODE_ENV=development&&nodemon bin/www",
+    "test": "set NODE_ENV=test&&echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^2.0.1",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "moment": "^2.21.0",
+    "mongodb": "^3.0.4",
+    "mongoose": "^5.0.9",
+    "pug": "^2.0.1"
+  },
+  "devDependencies": {
+    "opn": "^5.3.0"
+  }
+}

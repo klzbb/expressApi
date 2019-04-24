@@ -1,0 +1,18 @@
+extends layout
+block main
+  .container
+    h4(class='text-info') 添加文章
+    form(action='/post/add' method='post')
+      .form-group
+        label(for='exampleInputEmail1') 标题
+        input#exampleInputEmail1.form-control(type='text', placeholder='填写文章标题', name='title')
+      .form-group
+        label(for='exampleInputPassword1') 内容
+        input#exampleInputPassword1.form-control(type='text', placeholder='填写文章内容', name='content')
+      //- .form-group
+      //-   label(for='exampleInputPassword1') 作者
+      //-   input#exampleInputPassword1.form-control(type='text', placeholder='作者', name='author')
+      //- .form-group
+      //-   label(for='exampleInputPassword1') 创建于
+      //-   input#exampleInputPassword1.form-control(type='text', placeholder='创建日期', name='createAt')
+      button.btn.btn-default(type='submit') Submit

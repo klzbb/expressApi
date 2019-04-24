@@ -1,0 +1,80 @@
+extends layout
+block main
+  button#logout logout
+  .container
+        .panel.panel-default
+          .panel-heading Book(图书列表)
+          table.table
+            ul.list-group
+              li.list-group-item
+                a(href='/api/book/addForm') http://localhost:8080/book/add(增)
+              li.list-group-item
+                a(href='/api/book/find') http://localhost:8080/book/del(删)
+              li.list-group-item
+                a(href='/api/book/find') http://localhost:8080/book/find(查)
+              li.list-group-item
+                a(href='/api/book/find') http://localhost:8080/book/update(改)
+              li.list-group-item
+                a(href='/api/book/navs') http://localhost:8080/book/navs(菜单栏接口)
+
+        .panel.panel-default
+          .panel-heading Post(文章列表)
+          table.table
+            ul.list-group
+              li.list-group-item
+                a(href='/api/post/addForm') http://localhost:8080/post/add(增)
+              li.list-group-item
+                a(href='/api/post/find') http://localhost:8080/post/del(删)
+              li.list-group-item
+                a(href='/api/post/find') http://localhost:8080/post/find(查)
+              li.list-group-item
+                a(href='/api/post/find') http://localhost:8080/post/update(改)
+
+        .panel.panel-default
+          .panel-heading User(用户列表)
+          table.table
+            ul.list-group
+              li.list-group-item
+                a(href='/api/user/addForm') http://localhost:8080/user/add(增)
+              li.list-group-item
+                a(href='/api/user/find') http://localhost:8080/user/del(删)
+              li.list-group-item
+                a(href='/api/user/find') http://localhost:8080/user/find(查)
+              li.list-group-item
+                a(href='/api/user/find') http://localhost:8080/user/update(改)
+              li.list-group-item
+                a(href='/api/user/loginForm') http://localhost:8080/user/loginForm(登陆表单)
+
+        .panel.panel-default
+          .panel-heading Comment(评论列表)
+          table.table
+            ul.list-group
+              li.list-group-item
+                a(href='/api/comment/addForm') http://localhost:8080/comment/add(增)
+              li.list-group-item
+                a(href='/api/comment/find') http://localhost:8080/comment/del(删)
+              li.list-group-item
+                a(href='/api/comment/find') http://localhost:8080/comment/find(查)
+              li.list-group-item
+                a(href='/api/comment/find') http://localhost:8080/comment/update(改)
+
+
+        .panel.panel-default
+          .panel-heading Goods(物品列表)
+          table.table
+            ul.list-group
+              li.list-group-item
+                a(href='/api/goods/addForm') http://localhost:8080/goods/add(增)
+              li.list-group-item
+                a(href='/api/goods/find') http://localhost:8080/goods/del(删)
+              li.list-group-item
+                a(href='/api/goods/find') http://localhost:8080/goods/find(查)
+              li.list-group-item
+                a(href='/api/goods/find') http://localhost:8080/goods/update(改)   
+  p.text-center 粤ICP备18035310号-1   
+block append script
+  script.
+    $('#logout').on('click',function(){
+      $.post('/api/user/logout')
+    })
+

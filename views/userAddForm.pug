@@ -1,0 +1,13 @@
+extends layout
+block main
+  .container
+    a(href='/') 首页
+    span &gt;添加用户
+    form(action='/api/user/add' method='post')
+      .form-group
+        label(for='exampleInputEmail1') 用户名称
+        input#exampleInputEmail1.form-control(type='text', placeholder='填写用户名称', name='username')
+      .form-group
+        label(for='exampleInputPassword1') 用户密码
+        input#exampleInputPassword1.form-control(type='text', placeholder='填写用户密码', name='pwd')
+      button.btn.btn-default(type='submit') 提交

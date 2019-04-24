@@ -1,0 +1,15 @@
+doctype html
+html
+	head
+		meta(lang='zh-CN')
+		style.
+			input{
+				display:block;
+				margin-bottom:15px;
+			}
+	body
+		h2 编辑用户评论
+		form(action='/comment/doAddComment' method='post')
+			input(type='text' name='title')
+			input(type='text' name='content')
+			input(type='submit')
